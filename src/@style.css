@@ -1,0 +1,152 @@
+@import url('./reset.css');
+
+@layer tokens, base, components, utilities;
+
+@layer tokens {
+  :root {
+    /* colors */
+    --color-bg: #fff;
+    --color-fg: #213547;
+    --color-primary: #3b82f6;
+    --color-muted: #6b7280;
+
+    /* typography */
+    --font-sans: system-ui, avenir, helvetica, arial, sans-serif;
+
+    /* radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* spacing scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+
+    /* layout */
+    --container-max: 1280px;
+
+    /* effects */
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 8%);
+    --shadow-2: 0 8px 24px rgb(0 0 0 / 12%);
+    --transition-fast: 150ms;
+    --transition-base: 250ms;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #0b0f14;
+      --color-fg: rgb(255 255 255 / 87%);
+      --color-primary: #7aa2ff;
+      --color-muted: #9ca3af;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    color-scheme: light dark;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    min-width: 320px;
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    text-size-adjust: 100%;
+    text-rendering: optimizelegibility;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .container {
+    width: min(100% - 2rem, var(--container-max));
+    margin-inline: auto;
+  }
+
+  /* accessibility */
+  .sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* layout helpers */
+  .flex {
+    display: flex;
+  }
+
+  .grid {
+    display: grid;
+  }
+
+  .center {
+    display: grid;
+    place-items: center;
+  }
+
+  /* spacing helpers (sample) */
+  .mt-4 {
+    margin-top: var(--space-4);
+  }
+
+  .p-4 {
+    padding: var(--space-4);
+  }
+
+  /* button primitive */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    color: #fff;
+    border: 1px solid transparent;
+    transition: filter var(--transition-base);
+    box-shadow: var(--shadow-1);
+  }
+
+  .btn:hover {
+    filter: brightness(0.95);
+  }
+}

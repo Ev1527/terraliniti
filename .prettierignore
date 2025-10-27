@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+.nuxt/
+playwright-report/
+test-results/
+*.log

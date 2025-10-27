@@ -1,0 +1,46 @@
+{
+  "name": "terraliniti",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "eslint": "eslint .",
+    "eslint:fix": "npm run eslint -- --fix",
+    "stylelint": "stylelint \"**/*.css\"",
+    "stylelint:fix": "npm run stylelint -- --fix",
+    "typescript": "tsc -p tsconfig.json --noEmit",
+    "prettier": "prettier .",
+    "prettier:fix": "npm run prettier -- --write",
+    "lint": "npm run eslint && npm run stylelint && npm run typescript",
+    "lint:fix": "npm run eslint:fix && npm run stylelint:fix && npm run typescript && npm run prettier:fix"
+  },
+  "dependencies": {
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^2.13.0",
+    "@types/node": "^24.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue-jsx": "^5.1.1",
+    "@vue/tsconfig": "^0.8.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.38.0",
+    "eslint-plugin-vue": "^9.33.0",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript": "~5.9",
+    "vite": "^7.1.7",
+    "vue-tsc": "^3.1.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}

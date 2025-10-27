@@ -1,0 +1,14 @@
+pre-commit:
+  parallel: true
+  commands:
+    prettier-staged:
+      glob: "**/*.{js,ts,tsx,vue,json,css,scss,md,html,yml,yaml}"
+      run: npx prettier --write {staged_files}
+    eslint-staged:
+      glob: "**/*.{js,ts,tsx,vue,mjs,cjs}"
+      run: npx eslint --fix {staged_files}
+    stylelint-staged:
+      glob: "**/*.css"
+      run: npx stylelint --fix {staged_files}
+    typescript:
+      run: npx tsc -p tsconfig.json --noEmit

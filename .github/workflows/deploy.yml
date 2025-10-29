@@ -36,4 +36,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -p 22" ./dist/ ${{ secrets.SSH_USER }}@${{ env.DEPLOY_HOST }}${{ env.DEPLOY_PATH }}/
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -p 22" ./dist/ ${{ secrets.SSH_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_PATH }}/

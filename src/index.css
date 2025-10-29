@@ -1,4 +1,4 @@
-@import url('./reset.css');
+@import url('./app/styles/reset.css');
 
 @layer tokens, base, components, utilities;
 
@@ -12,6 +12,14 @@
 
     /* typography */
     --font-sans: system-ui, avenir, helvetica, arial, sans-serif;
+    --font-manrope-extra-light: 'Manrope Extra Light', sans-serif;
+    --font-manrope-light: 'Manrope Light', sans-serif;
+    --font-manrope-regular: 'Manrope Regular', sans-serif;
+    --font-manrope-medium: 'Manrope Medium', sans-serif;
+    --font-manrope-semi-bold: 'Manrope SemiBold', sans-serif;
+    --font-manrope-bold: 'Manrope Bold', sans-serif;
+    --font-manrope-extra-bold: 'Manrope ExtraBold', sans-serif;
+    --font-code-next: 'CodeNext', sans-serif;
 
     /* radius */
     --radius-sm: 4px;
@@ -64,6 +72,8 @@
     color: var(--color-fg);
     text-size-adjust: 100%;
     text-rendering: optimizelegibility;
+    scroll-behavior: smooth;
+    font-family: var(--font-manrope-regular);
   }
 
   a {

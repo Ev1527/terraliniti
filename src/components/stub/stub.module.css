@@ -1,0 +1,236 @@
+.stub {
+  background-image: url('/bck/stub.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 60px;
+}
+
+.title {
+  font-size: 24px;
+  color: #fff;
+  line-height: 128%;
+  letter-spacing: 0;
+  font-family: var(--font-manrope-bold);
+}
+
+.content {
+  max-width: 1440px;
+  width: 100%;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 39px 63px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textTitle {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 112%;
+  font-family: var(--font-code-next);
+  filter: drop-shadow(0 4px 25px rgba(0, 0, 0, 0.25));
+  color: #fff;
+}
+
+.textDescription {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 128%;
+  letter-spacing: 0;
+  max-width: 410px;
+  filter: drop-shadow(0 4px 25px rgba(0, 0, 0, 0.25));
+  color: #fff;
+  font-family: var(--font-manrope-medium);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 232px;
+}
+
+.contactTitle {
+  background-color: #cff34a;
+  padding: 10px 20px;
+  border-radius: 32px;
+  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.24));
+  z-index: 2;
+}
+
+.contactTitleText {
+  font-size: 22px;
+  line-height: 128%;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #1f1f1f;
+  font-family: var(--font-manrope-semi-bold);
+}
+
+.contactItems {
+  background-color: rgba(28, 26, 26, 0.5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 32px;
+  margin: 0 16px;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.contactItemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 18px;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contactText {
+  font-size: 24px;
+  font-family: var(--font-manrope-bold);
+  color: #fff;
+  line-height: 128%;
+  letter-spacing: 0;
+}
+
+@media screen and (max-width: 1320px) {
+  .contactTitleText {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .stub {
+    justify-content: flex-start;
+  }
+
+  .content {
+    margin-bottom: 40px;
+    height: 100%;
+  }
+
+  .textContainer {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 40px 40px;
+    height: 100%;
+  }
+
+  .text {
+    align-items: center;
+    gap: 32px;
+  }
+
+  .textTitle {
+    margin-top: 64px;
+    font-size: 48px;
+  }
+
+  .textDescription {
+    font-size: 24px;
+    max-width: 100%;
+  }
+
+  .contact {
+    max-width: 510px;
+    width: 100%;
+    align-self: center;
+  }
+
+  .contactTitle {
+    padding: 8px 16px;
+  }
+
+  .contactTitleText {
+    font-size: 18px;
+  }
+
+  .contactText {
+    font-size: 20px;
+  }
+
+  .contactTitleText {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    margin-top: 12px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .textContainer {
+    padding: 0 20px 24px;
+    gap: 24px;
+  }
+
+  .textTitle {
+    margin-top: 32px;
+    font-size: 32px;
+  }
+
+  .textDescription {
+    font-size: 18px;
+  }
+
+  .contact {
+    height: 180px;
+  }
+
+  .contactTitle {
+    padding: 8px 12px;
+  }
+
+  .contactTitleText {
+    font-size: 15px;
+  }
+
+  .contactText {
+    font-size: 16px;
+  }
+
+  .contactItemContainer {
+    gap: 12px;
+  }
+
+  .text {
+    gap: 16px;
+  }
+
+  .contactIcon {
+    height: 24px;
+  }
+}

@@ -46,7 +46,7 @@
   font-weight: 800;
   line-height: 112%;
   font-family: var(--font-code-next);
-  filter: drop-shadow(0 4px 25px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 4px 25px rgb(0 0 0 / 25%));
   color: #fff;
 }
 
@@ -56,7 +56,7 @@
   line-height: 128%;
   letter-spacing: 0;
   max-width: 410px;
-  filter: drop-shadow(0 4px 25px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 4px 25px rgb(0 0 0 / 25%));
   color: #fff;
   font-family: var(--font-manrope-medium);
 }
@@ -72,7 +72,7 @@
   background-color: #cff34a;
   padding: 10px 20px;
   border-radius: 32px;
-  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.24));
+  filter: drop-shadow(0 4px 40px rgb(0 0 0 / 24%));
   z-index: 2;
 }
 
@@ -86,9 +86,8 @@
 }
 
 .contactItems {
-  background-color: rgba(28, 26, 26, 0.5);
+  background-color: rgb(28 26 26 / 50%);
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   border-radius: 32px;
   margin: 0 16px;
   z-index: 1;
@@ -122,13 +121,13 @@
   letter-spacing: 0;
 }
 
-@media screen and (max-width: 1320px) {
+@media screen and (width <= 1320px) {
   .contactTitleText {
     font-size: 18px;
   }
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (width <= 1230px) {
   .stub {
     justify-content: flex-start;
   }
@@ -170,10 +169,6 @@
     padding: 8px 16px;
   }
 
-  .contactTitleText {
-    font-size: 18px;
-  }
-
   .contactText {
     font-size: 20px;
   }
@@ -183,9 +178,9 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
   .header {
-    margin-top: 12px;
+    margin-top: 22px;
   }
 
   .title {
@@ -195,11 +190,13 @@
   .textContainer {
     padding: 0 20px 24px;
     gap: 24px;
+    justify-content: space-around;
   }
 
   .textTitle {
-    margin-top: 32px;
+    margin-top: 22px;
     font-size: 32px;
+    width: 100%;
   }
 
   .textDescription {
@@ -208,6 +205,7 @@
 
   .contact {
     height: 180px;
+    max-width: 300px;
   }
 
   .contactTitle {

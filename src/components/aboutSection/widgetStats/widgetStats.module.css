@@ -1,0 +1,30 @@
+.widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 22px;
+  background: #3E5133;
+  width: 317px;
+  height: 140px;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.statValue {
+  font-size: 48px;
+  color: #cff34a;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 24px;
+  color: white;
+  line-height: 1.2;
+}

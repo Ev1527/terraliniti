@@ -1,15 +1,13 @@
 import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+import { prop } from '../../../types/prop-types'
 import styles from './header.module.css'
 
 export default defineComponent({
   name: 'Header',
   props: {
-    onNavigate: {
-      type: Function as PropType<(id: string) => void>,
-      required: true
-    }
+    onNavigate: prop<(id: string) => void>().required(),
   },
+
   setup(props) {
     const menuItems = [
       { label: 'О нас', id: 'about' },
@@ -25,7 +23,11 @@ export default defineComponent({
       <header class={styles.header}>
         <div class={styles.container}>
           <div class={styles.leftSection}>
-            <div class={styles.logoSection} onClick={() => props.onNavigate('home')} style="cursor: pointer;">
+            <div
+              class={styles.logoSection}
+              onClick={() => props.onNavigate('home')}
+              style="cursor: pointer;"
+            >
               <img src="/icons/icon-earth.svg" alt="Терралинити" class={styles.logoIcon} />
               <div class={styles.logoText}>
                 <h1 class={styles.logoTitle}>Терралинити</h1>
@@ -48,11 +50,7 @@ export default defineComponent({
 
           <div class={styles.rightSection}>
             {menuItems.map((item, index) => (
-              <button 
-                key={index} 
-                class={styles.navLink}
-                onClick={() => props.onNavigate(item.id)}
-              >
+              <button key={index} class={styles.navLink} onClick={() => props.onNavigate(item.id)}>
                 {item.label}
               </button>
             ))}

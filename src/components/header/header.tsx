@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import { prop } from '../../../types/prop-types'
 import styles from './header.module.css'
+import MasterButton from '../masterButton/masterButton'
 
 export default defineComponent({
   name: 'Header',
@@ -11,13 +12,10 @@ export default defineComponent({
   setup(props) {
     const menuItems = [
       { label: 'О нас', id: 'about' },
+      { label: 'Продукты', id: 'products' },
       { label: 'Услуги', id: 'services' },
       { label: 'Преимущества', id: 'advantages' },
     ]
-
-    const handleContactClick = () => {
-      props.onNavigate('contact')
-    }
 
     return () => (
       <header class={styles.header}>
@@ -54,10 +52,12 @@ export default defineComponent({
                 {item.label}
               </button>
             ))}
-            <button class={styles.contactButton} onClick={handleContactClick}>
-              Связаться
-              <img class={styles.arrow} src="/icons/icon-arrow.svg" alt="" />
-            </button>
+            <MasterButton
+              text="Связаться"
+              width="176px"
+              icon={'../../../public/icons/icon-arrow.svg'}
+              onClick={() => props.onNavigate('video')}
+            />
           </div>
         </div>
       </header>

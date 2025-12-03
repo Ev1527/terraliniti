@@ -4,25 +4,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 80px 40px;
   box-sizing: border-box;
-  border: 1px solid red;
 }
+
 .container {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   gap: 60px;
 }
+
 .statsContainer {
   width: 100%;
 }
+
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 100%;
 }
+
 .infoContainer {
   width: 100%;
-  margin-top: 40px;
 }

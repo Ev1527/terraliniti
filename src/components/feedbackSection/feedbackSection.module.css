@@ -1,0 +1,84 @@
+.feedBackSection {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 40px;
+  box-sizing: border-box;
+  background-image: url('/bck/footerBg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+.content {
+  display: flex;
+  align-items: flex-start;
+}
+.leftContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+}
+
+.feedbackInfo {
+  width: 580px;
+}
+
+.title {
+  color: #1a1a1a;
+  font-size: 52px;
+  font-weight: 800;
+  margin: 0 0 32px 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  color: #4a4a4a;
+  font-size: 24px;
+  line-height: 1.7;
+  margin: 0 0 40px 0;
+  font-weight: 400;
+}
+
+.phoneContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.phoneIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+
+.phoneIcon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.phoneNumber {
+  color: red;
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.rightContent {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 850px;
+}
+.contactBlock {
+  margin-top: 220px;
+}

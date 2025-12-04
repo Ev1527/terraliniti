@@ -1,0 +1,42 @@
+.dropDownSection {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.title {
+  color: #000000;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.dropdownsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.dropdownContent {
+  padding: 16px 0;
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.6;
+}

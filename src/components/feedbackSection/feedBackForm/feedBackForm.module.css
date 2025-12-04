@@ -1,0 +1,69 @@
+.feedbackForm {
+  width: 100%;
+  max-width: 580px;
+}
+.formWrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url('/bck/bgFeedBack.png');
+  background-size:auto;
+  background-position: center;
+  min-height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.formLabel {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+.formInput {
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.formTextarea {
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  font-size: 16px;
+  resize: vertical;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  min-height: 100px;
+  font-family: inherit;
+  transition: 0.2s ease;
+}
+
+.formTextarea::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}

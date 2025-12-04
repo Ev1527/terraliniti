@@ -5,6 +5,9 @@ import HomeSection from '../components/homeSection/homeSection'
 import AboutSection from '../components/aboutSection/aboutSection'
 import VideoSection from '../components/videoSection/videoSection'
 import ProductSection from '../components/productSection/productSection'
+import DropDownSection from '../components/dropDownSection/dropDownSection'
+import FeedBackSection from '../components/feedbackSection/feedbackSection'
+import Footer from '../components/footer/footer'
 
 
 export default defineComponent({
@@ -14,12 +17,16 @@ export default defineComponent({
     const aboutRef = ref<HTMLElement>();
     const videoRef = ref<HTMLElement>();
     const productRef = ref<HTMLElement>();
+    const dropDownRef = ref<HTMLElement>();
+    const feedBackRef = ref<HTMLElement>();
 
     const sections = [
       { id: 'home', name: 'Главная', ref: homeRef },
       { id: 'about', name: 'О нас', ref: aboutRef },
-      { id: 'video', name: 'О нас', ref: videoRef },
+      { id: 'video', name: 'Видео', ref: videoRef },
       { id: 'products', name: 'Наши продукты', ref: productRef },
+      { id: 'dropDown', name: 'Частые вопросы', ref: dropDownRef },
+      { id: 'feedBack', name: 'Заявка', ref: feedBackRef },
     ]
 
     const scrollToSection = (id: string) => {
@@ -58,10 +65,22 @@ export default defineComponent({
           <ProductSection />
         </div>
 
-        <div ref={videoRef} id="video">
+        <div ref={videoRef} id="video"> 
           <VideoSection />
         </div>
+       
+        <div ref={dropDownRef} id="dropDown"> 
+          <DropDownSection/>
+        </div>
+
+        <div ref={feedBackRef} id="feedBack">
+          <FeedBackSection/>
+        </div>
         
+        <div>
+          <Footer/>
+        </div>
+
       </div>
     )
   },

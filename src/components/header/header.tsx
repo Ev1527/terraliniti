@@ -2,6 +2,9 @@ import { defineComponent } from 'vue'
 import { prop } from '../../../types/prop-types'
 import styles from './header.module.css'
 import MasterButton from '../masterButton/masterButton'
+import ModalForm from '../modal/modal'
+import { useModal } from '../modal/useModal'
+import { MENU_ITEMS } from './header.constant'
 
 export default defineComponent({
   name: 'Header',
@@ -10,12 +13,15 @@ export default defineComponent({
   },
 
   setup(props) {
-    const menuItems = [
-      { label: 'О нас', id: 'about' },
-      { label: 'Продукты', id: 'products' },
-      { label: 'Услуги', id: 'services' },
-      { label: 'Преимущества', id: 'advantages' },
-    ]
+    const modal = useModal()
+
+    const handleContactClick = () => {
+      modal.open()
+    }
+
+    const handleFormSubmit = (data: any) => {
+      console.log('Форма отправлена из Header:', data)
+    }
 
     return () => (
       <header class={styles.header}>
@@ -47,19 +53,24 @@ export default defineComponent({
           </div>
 
           <div class={styles.rightSection}>
-            {menuItems.map((item, index) => (
-              <button key={index} class={styles.navLink} onClick={() => props.onNavigate(item.id)}>
+            {MENU_ITEMS.map((item, id) => (
+              <button key={id} class={styles.navLink} onClick={() => props.onNavigate(item.page)}>
                 {item.label}
               </button>
             ))}
             <MasterButton
               text="Связаться"
-              width="176px"
-              icon={'../../../public/icons/icon-arrow.svg'}
-              onClick={() => props.onNavigate('video')}
+              width="192px"
+              height="46px"
+              font="20px"
+              gap="8px"
+              icon="/icons/icon-arrow.svg"
+              onClick={handleContactClick}
             />
           </div>
         </div>
+
+        <ModalForm show={modal.isOpen.value} onSubmit={handleFormSubmit} onClose={modal.close} />
       </header>
     )
   },

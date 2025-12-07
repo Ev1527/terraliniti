@@ -10,7 +10,7 @@ export default defineComponent({
     disabled: prop<boolean>().optional(),
     bgColor: prop<string>().optional(),
   },
-  
+
   emits: ['toggle'],
 
   setup(props, { emit, slots }) {
@@ -24,27 +24,48 @@ export default defineComponent({
     }
 
     return () => (
-      <div class={[styles.dropdown, props.disabled && styles.disabled].join(' ')}>
-        <div 
+      <div
+        class={[styles.dropdown, props.disabled && styles.disabled].join(' ')}
+        style={{
+          backgroundColor: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
+          border: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
+        }}
+      >
+        <div
           class={styles.header}
           onClick={toggleDropdown}
+          style={{
+            backgroundColor: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
+          }}
         >
-          <span class={styles.title}>{props.title}</span>
-          <span class={[
-            styles.arrow,
-            isOpen.value && styles.arrowOpen
-          ].join(' ')}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <span
+            class={styles.title}
+            style={{
+              color: isOpen.value ? '#FBFBFB' : '#E0E0E0',
+              transition: 'color 0.3s ease',
+            }}
+          >
+            {props.title}
+          </span>
+          <span class={[styles.arrow, isOpen.value && styles.arrowOpen].join(' ')}>
+            <img
+              src="/icons/icon-ExpandArrow.svg"
+              alt="Expand"
+              style={{
+                width: '32px',
+                height: '32px',
+                transition: 'transform 0.3s ease',
+                transform: isOpen.value ? 'rotate(180deg)' : 'rotate(180deg)',
+              }}
+            />
           </span>
         </div>
-        
-        <div 
-          class={[
-            styles.content,
-            isOpen.value && styles.contentOpen
-          ].join(' ')}
+
+        <div
+          class={[styles.content, isOpen.value && styles.contentOpen].join(' ')}
+          style={{
+            backgroundColor: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
+          }}
         >
           {slots.default && (
             <div class={styles.contentInner}>

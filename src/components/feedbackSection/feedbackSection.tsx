@@ -14,7 +14,9 @@ export default defineComponent({
         <div class={styles.content}>
           <div class={styles.leftContent}>
             <div class={styles.feedbackInfo}>
-              <h1 class={styles.title}>Оставьте заявку на консультацию</h1>
+              <div class={styles.wrapperTitle}>
+                <h1 class={styles.title}>Оставьте заявку на консультацию</h1>
+              </div>
               <p class={styles.description}>
                 Наш специалист свяжется с вами по телефону или в мессенджере. Обращаем внимание, что
                 специалисты работают с 8:00 до 19:00.

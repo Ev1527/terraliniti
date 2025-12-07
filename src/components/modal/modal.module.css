@@ -1,50 +1,103 @@
-@import url('../../../app/styles/font');
+@import url('../../app/styles/font');
 
-.feedbackForm {
-  width: 100%;
-  max-width: 580px;
-  height: 100%;
-  height: 655px;
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-out;
 }
 
-.formWrapper {
+.modalContent {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.modalWrapper {
   position: relative;
   border-radius: 32px;
   overflow: hidden;
-  background-image: url('/bck/bgFeedBack.png');
+  background: #222722;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   height: 100%;
+  max-height: 820px;
   padding: 35px;
   display: flex;
+  gap: 32px;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-.formFields {
+.modalHeader {
+  width: 100%;
+  max-width: 536px;
+  height: 100%;
+  gap: 16px;
+  max-height: 198px;
+  text-align: center;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  font-family: 'CodeNext', sans-serif;
+  color: #FAFEFE;
+  font-size: 46px;
+  line-height: 1.2;
+}
+
+.modalDescription {
+  font-family: 'Manrope Medium', sans-serif;
+  color: #A4A6A4;
+  font-size: 20px;
+  line-height: 1.3;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.modalFields {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
   max-width: 520px;
+  margin: 0 auto;
+  flex: 1;
+  overflow: visible;
 }
 
-.formField {
+.modalField {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-shrink: 0;
 }
 
-.formLabel {
+.modalLabel {
   font-family: 'Manrope Bold', sans-serif;
   color: #FBFBFB;
   font-size: 24px;
-  line-height: 1.3;
+  line-height: 128%;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
-.formInput {
+.modalInput {
   font-family: 'Manrope Medium', sans-serif;
   padding: 14px 16px;
   border: 1px solid #fbfbfb;
@@ -55,13 +108,11 @@
   color: #000000;
   transition: 0.2s ease;
   width: 100%;
-  max-width: 520px;
-  height: 100%;
-  max-height: 63px;
+  height: 63px;
   box-sizing: border-box;
 }
 
-.formInput::placeholder {
+.modalInput::placeholder {
   font-family: 'Manrope Medium', sans-serif;
   color: #a8a8a8;
 }
@@ -77,7 +128,6 @@
 }
 
 .phonePrefix {
-  font-family: 'Manrope SemiBold', sans-serif;
   padding: 14px 0 14px 16px;
   font-size: 24px;
   color: #000000;
@@ -91,7 +141,6 @@
   padding: 14px 16px 14px 8px;
   border: none;
   width: 100%;
-  max-width: 520px;
   font-size: 24px;
   height: 100%;
   background-color: transparent;
@@ -106,11 +155,11 @@
   color: #a8a8a8;
 }
 
-.formTextarea {
+.modalTextarea {
   font-family: 'Manrope Regular', sans-serif;
-  padding: 20px 17px;
+  padding: 12px 12px;
   border-radius: 18px;
-  font-size: 23px;
+  font-size: 24px;
   resize: none;
   background-color: #fbfbfb;
   color: #000000;
@@ -125,18 +174,32 @@
   scrollbar-width: none;
 }
 
-.formTextarea::placeholder {
+.modalTextarea::placeholder {
   font-family: 'Manrope Regular', sans-serif;
   color: #a8a8a8;
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
-  max-height: calc(1.3em * 3 + 5px);
-  line-height: 128%;
+  max-height: calc(1.4em * 3 + 4px);
+  line-height: 1.4;
 }
 
-.formSubmit {
-  padding-top: 50px;
+.modalSubmit {
+  padding-top: 30px;
   margin-top: auto;
+  flex-shrink: 0;
+}
+
+.successContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 820px;
+  max-height: 820px;
+  padding: 35px;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  overflow: hidden;
 }

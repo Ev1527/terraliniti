@@ -1,3 +1,4 @@
+@import url('../../../app/styles/font');
 .widget {
   display: flex;
   align-items: center;
@@ -9,22 +10,23 @@
   height: 140px;
   box-sizing: border-box;
 }
-
 .content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
 }
-
 .statValue {
+  font-family: 'Manrope ExtraBold', sans-serif;
   font-size: 48px;
-  color: #cff34a;
+  font-weight: 800;
+  line-height: 112;
+  color: #E4ECC4;
   line-height: 1;
 }
-
 .statLabel {
+  font-family: 'Manrope Medium', sans-serif;
   font-size: 24px;
-  color: white;
+  color: #E4ECC4;
   line-height: 1.2;
 }

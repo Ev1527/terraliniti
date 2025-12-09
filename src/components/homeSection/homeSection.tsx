@@ -14,12 +14,11 @@ export default defineComponent({
     onNavigate: prop<(id: string) => void>().required(),
   },
   setup(props) {
-  
     const modal = useModal()
 
     const handleLearnMore = () => {
       modal.open()
-      
+
       if (props.onLearnMore) {
         props.onLearnMore()
       }
@@ -32,7 +31,7 @@ export default defineComponent({
     return () => (
       <div class={styles.homeSection}>
         {props.showHeader && <Header onNavigate={props.onNavigate} />}
-        
+
         <div class={styles.content}>
           <div class={styles.titleContainer}>
             <h1 class={styles.title}>
@@ -40,34 +39,30 @@ export default defineComponent({
               <br />
               ДЛЯ СЕЛЬСКОГО ХОЗЯЙСТВА
             </h1>
-          </div>
-
-          <div class={styles.descriptionContainer}>
             <p class={styles.description}>
               В своём стремлении улучшить пользовательский опыт мы
               <br />
               упускаем, что явные признаки победы могут быть
             </p>
           </div>
-
           <div class={styles.buttonContainer}>
             <MasterButton
               text="Узнать больше"
               width="284px"
               height="66px"
-              font="24px"
+              fontSize="24px"
               icon="/icons/icon-rightArrow.svg"
               iconWidth="46px"
               iconHeight="46px"
+              gap="18px"
+              fontWeight='600'
+              padding='10px 12px 10px 32px'
               onClick={handleLearnMore}
             />
           </div>
         </div>
-        <ModalForm
-          show={modal.isOpen.value}
-          onSubmit={handleFormSubmit}
-          onClose={modal.close}
-        />
+
+        <ModalForm show={modal.isOpen.value} onSubmit={handleFormSubmit} onClose={modal.close} />
       </div>
     )
   },

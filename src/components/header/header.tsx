@@ -27,11 +27,7 @@ export default defineComponent({
       <header class={styles.header}>
         <div class={styles.container}>
           <div class={styles.leftSection}>
-            <div
-              class={styles.logoSection}
-              onClick={() => props.onNavigate('home')}
-              style="cursor: pointer;"
-            >
+            <div class={styles.logoSection} onClick={() => props.onNavigate('home')}>
               <img src="/icons/icon-earth.svg" alt="Терралинити" class={styles.logoIcon} />
               <div class={styles.logoText}>
                 <h1 class={styles.logoTitle}>Терралинити</h1>
@@ -54,16 +50,28 @@ export default defineComponent({
 
           <div class={styles.rightSection}>
             {MENU_ITEMS.map((item, id) => (
-              <button key={id} class={styles.navLink} onClick={() => props.onNavigate(item.page)}>
-                {item.label}
-              </button>
+              <div key={id} class={styles.navItemWrapper}>
+                <a
+                  class={styles.navLink}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    props.onNavigate(item.page)
+                  }}
+                >
+                  {item.label}
+                </a>
+              </div>
             ))}
             <MasterButton
               text="Связаться"
               width="192px"
               height="46px"
-              font="20px"
+              iconWidth='32px'
+              iconHeight='32px'
+              fontSize="20px"
               gap="8px"
+              fontWeight='600'
+              padding='10px 16px 10px 32px'
               icon="/icons/icon-arrow.svg"
               onClick={handleContactClick}
             />

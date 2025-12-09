@@ -6,9 +6,11 @@ import MasterButton from '../../masterButton/masterButton'
 export default defineComponent({
   name: 'SuccessMessage',
   props: {
-    title: prop<string>().optional(),
-    description: prop<string>().optional(),
-    buttonText: prop<string>().optional(),
+    title: prop<string>().optional('Спасибо за заявку!'),
+    description: prop<string>().optional(
+      'Специалисты Терралинити свяжутся с вами в ближайшее время для уточнения деталей.',
+    ),
+    buttonText: prop<string>().optional('Готово'),
     onButtonClick: prop<() => void>().optional(),
     show: prop<boolean>().optional(true),
   },
@@ -19,23 +21,22 @@ export default defineComponent({
 
       return (
         <div class={styles.modalOverlay}>
-          <div class={styles.successModal}>
-            <div class={styles.successMessage}>
-              <h2 class={styles.successTitle}>Спасибо за заявку!</h2>
-
-              <p class={styles.successDescription}>
-                Специалисты Терралинити свяжутся с вами в ближайшее время для уточнения деталей.
-              </p>
-
+          <div class={styles.successContainer}>
+            <div class={styles.textBlock}>
+              <h1 class={styles.title}>{props.title}</h1>
+              <p class={styles.description}>{props.description}</p>
+            </div>
+            <div class={styles.buttonBlock}>
               {props.onButtonClick && (
-                <div class={styles.successButton}>
-                  <MasterButton
-                    text="Готово"
-                    width="531px"
-                    height="66px"
-                    onClick={props.onButtonClick}
-                  />
-                </div>
+                <MasterButton
+                  text={props.buttonText}
+                  width="531px"
+                  height="66px"
+                  fontSize='24px'
+                  fontWeight='600'
+                  justifyContent='center'
+                  onClick={props.onButtonClick}
+                />
               )}
             </div>
           </div>

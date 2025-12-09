@@ -118,11 +118,7 @@ export default defineComponent({
           <div class={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             {isSubmitted.value ? (
               <div class={styles.successContainer}>
-                <SuccessMessage
-                  onButtonClick={handleCloseModal}
-                  show={isSubmitted.value}
-                  buttonText="Готово"
-                />
+                <SuccessMessage onButtonClick={handleCloseModal} show={isSubmitted.value} />
               </div>
             ) : (
               <div class={styles.modalWrapper}>
@@ -134,55 +130,66 @@ export default defineComponent({
                   </p>
                 </div>
 
-                <div class={styles.modalFields}>
-                  <div class={styles.modalField}>
-                    <label class={styles.modalLabel}>Ваше имя</label>
-                    <input
-                      type="text"
-                      class={styles.modalInput}
-                      placeholder="Введите ваше имя"
-                      value={formData.value.name}
-                      onInput={handleNameInput}
-                      maxlength="50"
-                    />
-                  </div>
-
-                  <div class={styles.modalField}>
-                    <label class={styles.modalLabel}>Номер телефона</label>
-                    <div class={styles.phoneInputWrapper}>
-                      <span class={styles.phonePrefix}>+7</span>
+                <div class={styles.wrapperInputModal}>
+                  <div class={styles.modalFields}>
+                    <div class={styles.modalField}>
+                      <label class={styles.modalLabel}>Ваше имя</label>
                       <input
-                        type="tel"
-                        class={styles.phoneInput}
-                        placeholder="(000) 000-00-00"
-                        value={formattedPhone.value}
-                        onInput={handlePhoneInput}
-                        onKeypress={handlePhoneKeyPress}
-                        maxlength="15"
-                        inputmode="numeric"
+                        type="text"
+                        id="name"
+                        name="name"
+                        class={styles.modalInput}
+                        placeholder="Введите ваше имя"
+                        value={formData.value.name}
+                        onInput={handleNameInput}
+                        maxlength={50}
+                      />
+                    </div>
+
+                    <div class={styles.modalField}>
+                      <label class={styles.modalLabel}>Номер телефона</label>
+                      <div class={styles.phoneInputWrapper}>
+                        <span class={styles.phonePrefix}>+7</span>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          class={styles.phoneInput}
+                          placeholder="(000) 000-00-00"
+                          value={formattedPhone.value}
+                          onInput={handlePhoneInput}
+                          onKeypress={handlePhoneKeyPress}
+                          maxlength={15}
+                          inputmode="numeric"
+                        />
+                      </div>
+                    </div>
+
+                    <div class={styles.modalField}>
+                      <label class={styles.modalLabel}>Комментарий</label>
+                      <textarea
+                        class={styles.modalTextarea}
+                        placeholder="В своём стремлении улучшить пользовательский опыт мы упускаем, что явные признаки победы могут быть..."
+                        rows={3}
+                        id="comment"
+                        name="comment"
+                        value={formData.value.comment}
+                        onInput={handleCommentInput}
+                        maxlength={210}
                       />
                     </div>
                   </div>
-
-                  <div class={styles.modalField}>
-                    <label class={styles.modalLabel}>Комментарий</label>
-                    <textarea
-                      class={styles.modalTextarea}
-                      placeholder="В своём стремлении улучшить пользовательский опыт мы упускаем, что явные признаки победы могут быть..."
-                      rows={3}
-                      value={formData.value.comment}
-                      onInput={handleCommentInput}
-                      maxlength="210"
-                    />
-                  </div>
-
-                  <div class={styles.modalSubmit}>
+                  <div class={styles.modalSubmitWrapper}>
                     <MasterButton
                       text={isLoading.value ? 'Отправка...' : 'Отправить'}
-                      width="520px"
+                      width="536px"
                       height="66px"
                       iconHeight="46px"
                       iconWidth="46px"
+                      gap="12px"
+                      justifyContent="center"
+                      fontWeight="600"
+                      padding="10px 12px 10px 32px"
                       onClick={handleSubmit}
                       icon="/icons/icon-arrowUp.svg"
                     />

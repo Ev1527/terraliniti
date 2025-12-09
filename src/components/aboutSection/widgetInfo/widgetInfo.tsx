@@ -24,28 +24,40 @@ export default defineComponent({
       if (!activeTabData) return null
 
       if (activeTabData.description === 'team' && activeTabData.images) {
+        const [img1, img2, img3, img4] = activeTabData.images
+
         return (
           <div class={styles.teamContent}>
             <div class={styles.teamImages}>
-              {activeTabData.images.map((image, index) => (
-                <div key={index} class={styles.teamImageContainer}>
-                  <img src={image} class={styles.teamImage} alt={`Команда ${index + 1}`} />
+              <div class={styles.teamColumn}>
+                <div class={`${styles.teamImageContainer} ${styles.small}`}>
+                  <img src={img1} class={styles.teamImage} alt="Команда 1" />
                 </div>
-              ))}
+                <div class={`${styles.teamImageContainer} ${styles.large}`}>
+                  <img src={img3} class={styles.teamImage} alt="Команда 3" />
+                </div>
+              </div>
+              <div class={styles.teamColumn}>
+                <div class={`${styles.teamImageContainer} ${styles.large}`}>
+                  <img src={img2} class={styles.teamImage} alt="Команда 2" />
+                </div>
+                <div class={`${styles.teamImageContainer} ${styles.small}`}>
+                  <img src={img4} class={styles.teamImage} alt="Команда 4" />
+                </div>
+              </div>
             </div>
-            <div class={styles.teamText}>{activeTabData.content}</div>
+            <p class={styles.teamText}>{activeTabData.content}</p>
           </div>
         )
       }
 
-      return <div class={styles.textContent}>{activeTabData.content}</div>
+      return <p class={styles.textContent}>{activeTabData.content}</p>
     }
 
     return () => (
       <div class={styles.widgetInfo}>
         <div class={styles.leftColumn}>
           <h2 class={styles.title}>{props.title}</h2>
-
           <div class={styles.tabsRow}>
             {props.tabs.map((tab) => (
               <button
@@ -58,7 +70,6 @@ export default defineComponent({
             ))}
           </div>
         </div>
-
         <div class={styles.rightColumn}>
           <div class={styles.tabContent}>{renderTabContent()}</div>
         </div>

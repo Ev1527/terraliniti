@@ -1,32 +1,25 @@
 .aboutSection {
-  width: 100%;
   background-color: #ffffff;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 40px 40px;
+  align-items: center;
+  padding: 30px 42px;
   box-sizing: border-box;
-  border-top-left-radius: 35px;
+  border-top-left-radius: 32px;
 }
+
 .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1356px;
   display: flex;
   flex-direction: column;
   gap: 60px;
   margin: 0 auto;
 }
 
-.statsContainer {
-  width: 100%;
-}
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  width: 100%;
-}
-
-.infoContainer {
-  width: 100%;
+  gap: 28px;
 }

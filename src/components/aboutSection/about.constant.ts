@@ -21,12 +21,7 @@ export const TABS: TabContent[] = [
     title: 'Наша команда',
     content:
       'Высококлассные специалисты с опытом работы более 20 лет. В нашей команде больше 20 агрономов, техников и рабочих рабочих.',
-    images: [
-      '/team/3.png',
-      '/team/4.png',
-      '/team/2.png',
-      '/team/1.png',
-    ],
+    images: ['/team/3.png', '/team/4.png', '/team/2.png', '/team/1.png'],
   },
   {
     id: '3',

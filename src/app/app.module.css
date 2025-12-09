@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 .app {
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
   width: 100%;
   overflow: hidden;
 }
@@ -9,16 +14,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
 }
 
 .sectionDivider {
   height: 2px;
   background-color: #3e5133;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1356px;
   margin: 0 auto;
 }
 .homeSectionWrapper {
-  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/bck/stub.png');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
 }

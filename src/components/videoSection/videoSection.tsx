@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref } from 'vue'
 import styles from './videoSection.module.css'
 import MasterButton from '../masterButton/masterButton'
 import ModalForm from '../modal/modal'
@@ -11,50 +11,29 @@ export default defineComponent({
     const showPoster = ref(true)
 
     const modal = useModal()
-
-    onMounted(() => {
-      const video = videoRef.value
-      if (!video) return
-
-      video.muted = false
-      video.volume = 0.3
-      video.loop = true
-    })
+    const videoSrc = '/video/Teralinniti1080.mp4'
 
     const startVideo = () => {
       if (!videoRef.value) return
 
-      videoRef.value
-        .play()
-        .then(() => {
-          showPoster.value = false
-        })
-        .catch((error) => {
-          console.error('Ошибка запуска видео:', error)
-          videoRef.value!.muted = true
-          videoRef.value!.play().then(() => {
-            showPoster.value = false
-          })
-        })
+      videoRef.value.src = videoSrc
+      videoRef.value.load()
+      videoRef.value.play().then(() => {
+        showPoster.value = false
+        videoRef.value!.controls = true
+      })
     }
 
-    const toggleVideoPlayback = () => {
-      if (!videoRef.value) return
-
-      if (videoRef.value.paused) {
-        videoRef.value.play()
-      } else {
-        videoRef.value.pause()
+    const handleVideoEnded = () => {
+      showPoster.value = true
+      if (videoRef.value) {
+        videoRef.value.controls = false
+        videoRef.value.currentTime = 0
       }
     }
 
-    const handleContactClick = () => {
-      modal.open()
-    }
-
-    const handleFormSubmit = (data: any) => {
-      console.log('Форма отправлена из VideoSection:', data)
-    }
+    const handleContactClick = () => modal.open()
+    const handleFormSubmit = (data: any) => console.log('Форма отправлена из VideoSection:', data)
 
     return () => (
       <div class={styles.videoSection}>
@@ -64,9 +43,12 @@ export default defineComponent({
             text="Связаться с компанией"
             width="381px"
             height="66px"
-            font='24px'
+            fontSize="24px"
             iconWidth="46px"
             iconHeight="46px"
+            fontWeight='600'
+            gap='16px'
+            padding='10px 10px 10px 32px'
             icon="/icons/icon-rightArrow.svg"
             onClick={handleContactClick}
           />
@@ -77,34 +59,36 @@ export default defineComponent({
             <video
               ref={videoRef}
               class={styles.videoPlayer}
-              src="/video/Joji.mp4"
-              preload="metadata"
               playsinline
               webkit-playsinline
-              loop
-              onClick={toggleVideoPlayback}
+              muted={false}
+              preload="none"
+              onEnded={handleVideoEnded}
             >
-              <source src="/video/Joji.mp4" type="video/mp4" />
               Ваш браузер не поддерживает видео.
             </video>
 
-            <img
-              src="/video/poster.png"
-              alt="Терралинити видео"
-              class={`${styles.videoPoster} ${!showPoster.value ? styles.hidden : ''}`}
-            />
-
             {showPoster.value && (
-              <div class={styles.playButtonOverlay} onClick={startVideo}>
+              <>
                 <img
-                  src="/icons/icon-Play.svg"
-                  alt="Воспроизвести видео"
-                  class={styles.playButtonIcon}
+                  src="/video/poster.png"
+                  alt="Терралинити видео"
+                  class={styles.videoPoster}
+                  loading="lazy"
                 />
-              </div>
+                <div class={styles.playButtonOverlay} onClick={startVideo}>
+                  <img
+                    src="/icons/icon-Play.svg"
+                    alt="Воспроизвести видео"
+                    class={styles.playButtonIcon}
+                    loading="lazy"
+                  />
+                </div>
+              </>
             )}
           </div>
         </div>
+
         <ModalForm show={modal.isOpen.value} onSubmit={handleFormSubmit} onClose={modal.close} />
       </div>
     )

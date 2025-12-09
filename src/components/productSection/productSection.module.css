@@ -5,28 +5,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 40px;
+  padding: 30px 42px;
   box-sizing: border-box;
 }
 
 .container {
   width: 100%;
-}
-
-.productContainer {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  max-width: 1356px;
 }
 
 .productGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  justify-content: center;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .productTitle {
@@ -34,7 +26,6 @@
   color: #222722;
   font-size: 52px;
   line-height: 1.2;
-  margin-bottom: 60px;
+  margin-bottom: 42px;
   text-align: center;
-  width: 100%;
 }

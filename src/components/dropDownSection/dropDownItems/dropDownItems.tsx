@@ -1,4 +1,5 @@
-import { defineComponent, ref } from 'vue'
+// DropDownItems.vue
+import { defineComponent, ref, watch, nextTick } from 'vue'
 import { prop } from '../../../../types/prop-types'
 import styles from './dropDownItems.module.css'
 
@@ -10,68 +11,65 @@ export default defineComponent({
     disabled: prop<boolean>().optional(),
     bgColor: prop<string>().optional(),
   },
-
   emits: ['toggle'],
 
   setup(props, { emit, slots }) {
-    const isOpen = ref(props.isOpen)
+    const isOpen = ref(props.isOpen ?? false)
+    const contentRef = ref<HTMLDivElement>()
+    const height = ref('0px')
 
-    const toggleDropdown = () => {
-      if (!props.disabled) {
-        isOpen.value = !isOpen.value
-        emit('toggle', isOpen.value)
+    const toggleDropdown = async () => {
+      if (props.disabled) return
+
+      isOpen.value = !isOpen.value
+
+      await nextTick()
+
+      if (isOpen.value && contentRef.value) {
+        height.value = contentRef.value.scrollHeight + 'px'
+      } else {
+        height.value = '0px'
       }
+
+      emit('toggle', isOpen.value)
     }
+
+    watch(
+      () => props.isOpen,
+      async (v) => {
+        if (v === undefined) return
+        isOpen.value = v
+
+        await nextTick()
+
+        if (v && contentRef.value) {
+          height.value = contentRef.value.scrollHeight + 'px'
+        } else {
+          height.value = '0px'
+        }
+      },
+    )
 
     return () => (
       <div
-        class={[styles.dropdown, props.disabled && styles.disabled].join(' ')}
+        class={[
+          styles.dropdown,
+          props.disabled && styles.disabled,
+          isOpen.value && styles.openState,
+        ].join(' ')}
         style={{
-          backgroundColor: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
-          border: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
+          backgroundColor: isOpen.value ? '#3E5133' : (props.bgColor ?? '#222722'),
         }}
       >
-        <div
-          class={styles.header}
-          onClick={toggleDropdown}
-          style={{
-            backgroundColor: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
-          }}
-        >
-          <span
-            class={styles.title}
-            style={{
-              color: isOpen.value ? '#FBFBFB' : '#E0E0E0',
-              transition: 'color 0.3s ease',
-            }}
-          >
-            {props.title}
-          </span>
-          <span class={[styles.arrow, isOpen.value && styles.arrowOpen].join(' ')}>
-            <img
-              src="/icons/icon-ExpandArrow.svg"
-              alt="Expand"
-              style={{
-                width: '32px',
-                height: '32px',
-                transition: 'transform 0.3s ease',
-                transform: isOpen.value ? 'rotate(180deg)' : 'rotate(180deg)',
-              }}
-            />
-          </span>
+        <div class={styles.header} onClick={toggleDropdown}>
+          <h1 class={styles.title}>{props.title}</h1>
+          <div class={[styles.arrow, isOpen.value && styles.arrowOpen].join(' ')}>
+            <img src="/icons/icon-ExpandArrow.svg" width={32} height={32} />
+          </div>
         </div>
 
-        <div
-          class={[styles.content, isOpen.value && styles.contentOpen].join(' ')}
-          style={{
-            backgroundColor: isOpen.value ? '#3E5133' : props.bgColor || '#222722',
-          }}
-        >
-          {slots.default && (
-            <div class={styles.contentInner}>
-              {slots.default()}
-            </div>
-          )}
+        <div class={styles.content} ref={contentRef} style={{ maxHeight: height.value }}>
+          {slots.default && <div class={styles.contentInner}>{slots.default()}</div>}
         </div>
       </div>
     )

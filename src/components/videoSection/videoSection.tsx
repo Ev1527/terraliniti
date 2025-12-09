@@ -11,7 +11,7 @@ export default defineComponent({
     const showPoster = ref(true)
 
     const modal = useModal()
-    const videoSrc = '/video/Teralinniti1080.mp4'
+    const videoSrc = '/video/test.mp4'
 
     const startVideo = () => {
       if (!videoRef.value) return

@@ -1,6 +1,6 @@
 import { defineComponent, ref, computed } from 'vue'
 import { prop } from '../../../../types/prop-types'
-import styles from './feedbackForm.module.css'
+import styles from './feedBackForm.module.css'
 import MasterButton from '../../masterButton/masterButton'
 import SuccessMessage from '../successMessage/successMessage'
 import {
@@ -54,7 +54,6 @@ export default defineComponent({
     const handleNameInput = (e: Event) => {
       const target = e.target as HTMLInputElement
       let value = target.value
-
 
       value = value.replace(/[^а-яА-ЯёЁ\s\-]/g, '')
 

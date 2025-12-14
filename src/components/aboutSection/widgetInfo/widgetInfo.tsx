@@ -2,11 +2,16 @@ import { defineComponent, ref } from 'vue'
 import { prop } from '../../../../types/prop-types'
 import styles from './widgetInfo.module.css'
 
+export interface TextPart {
+  text: string
+  weight?: '500' | '800' | '600'
+}
+
 export interface TabContent {
   id: string
   title: string
   description: string
-  content: string
+  content: TextPart[]
   images?: string[]
 }
 
@@ -18,6 +23,26 @@ export default defineComponent({
   },
   setup(props) {
     const activeTab = ref(props.tabs[1]?.id || '')
+
+    const renderTextContent = (content: TextPart[]) => (
+      <p class={styles.textContent}>
+        {content.map((part, index) => {
+          let weightClass = styles.medium
+
+          if (part.weight === '800') {
+            weightClass = styles.extraBold
+          } else if (part.weight === '600') {
+            weightClass = styles.semiBold
+          }
+
+          return (
+            <span key={index} class={weightClass}>
+              {part.text}
+            </span>
+          )
+        })}
+      </p>
+    )
 
     const renderTabContent = () => {
       const activeTabData = props.tabs.find((tab) => tab.id === activeTab.value)
@@ -46,12 +71,15 @@ export default defineComponent({
                 </div>
               </div>
             </div>
-            <p class={styles.teamText}>{activeTabData.content}</p>
+
+            {/* 🔥 ВАЖНО */}
+            {renderTextContent(activeTabData.content)}
           </div>
         )
       }
 
-      return <p class={styles.textContent}>{activeTabData.content}</p>
+      /* 🔥 и здесь */
+      return renderTextContent(activeTabData.content)
     }
 
     return () => (

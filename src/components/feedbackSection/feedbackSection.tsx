@@ -26,7 +26,9 @@ export default defineComponent({
                 <div class={styles.phoneIcon}>
                   <img src="/icons/icon-PhoneFeedBack.svg" alt="Телефон" />
                 </div>
-                <p class={styles.phoneNumber}>+7 (495) 796-72-22</p>
+                <a href="tel:+74957967222" class={styles.phoneNumber}>
+                  +7 (495) 796-72-22
+                </a>
               </div>
             </div>
           </div>

@@ -14,11 +14,15 @@ export default defineComponent({
           <div class={styles.rightContent}>
             <div>
               <img src="/icons/icon-PhoneFooter.svg" alt="Phone" class={styles.iconPhone} />
-              <span class={styles.contact}>+7 (495) 796-72-22</span>
+              <a href="tel:+74957967222" class={styles.contact}>
+                +7 (495) 796-72-22
+              </a>
             </div>
             <div>
               <img src="/icons/icon-mail.svg" alt="Email" class={styles.iconMail} />
-              <span class={styles.contact}>terraliniti@mail.ru</span>
+              <a href="mailto:terraliniti@mail.ru" class={styles.contact}>
+                terraliniti@mail.ru
+              </a>
             </div>
           </div>
         </div>

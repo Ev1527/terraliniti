@@ -93,6 +93,7 @@
   font-size: 24px;
   padding: 14px 16px;
   border-radius: 18px;
+  line-height: 128%;
   width: 100%;
   box-sizing: border-box;
   background-color: #fbfbfb;
@@ -106,6 +107,7 @@
 .modalTextarea::placeholder {
   color: #a8a8a8;
   font-weight: 500;
+  text-indent: 0;
 }
 
 .phoneInputWrapper {
@@ -129,6 +131,7 @@
 .phoneInput {
   flex: 1;
   border: none;
+  text-indent: 10px;
   background-color: transparent;
   padding: 14px 8px 14px 0;
 }
@@ -178,4 +181,105 @@
   justify-content: center;
   flex-direction: column;
   gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .modalWrapper {
+    padding: 24px;
+    border-radius: 24px;
+    max-height: 90vh; /* Чтобы помещалось на экране */
+  }
+
+  .modalTitle {
+    font-size: 32px;
+  }
+
+  .modalDescription {
+    font-size: 18px;
+    max-width: 90%;
+  }
+
+  .modalFields {
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  .modalLabel {
+    font-size: 20px;
+  }
+
+  .modalInput,
+  .phoneInput,
+  .modalTextarea {
+    font-size: 20px;
+    padding: 12px 14px;
+  }
+
+  .phoneInputWrapper {
+    height: 55px;
+  }
+
+  .phonePrefix {
+    font-size: 20px;
+    padding: 12px 14px;
+  }
+
+  .modalSubmitWrapper {
+    margin-top: 16px;
+  }
+
+  MasterButton {
+    width: 100%; /* Занимает всю ширину */
+    height: 56px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalTitle {
+    font-size: 24px;
+  }
+
+  .modalDescription {
+    font-size: 16px;
+  }
+
+  .modalLabel {
+    font-size: 16px;
+  }
+
+  .modalInput,
+  .phoneInput,
+  .modalTextarea {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .phoneInputWrapper {
+    height: 48px;
+  }
+
+  .phonePrefix {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .modalSubmitWrapper {
+    margin-top: 12px;
+  }
+
+  MasterButton {
+    height: 48px;
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+
+/* Чтобы модалка не выходила за экран */
+.modalContent {
+  width: 95%;
+  max-width: 600px;
+  margin: 0 10px;
+  max-height: 95vh;
+  overflow-y: auto;
 }

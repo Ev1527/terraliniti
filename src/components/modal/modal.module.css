@@ -1,5 +1,4 @@
 @import url('../../app/styles/font');
-
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -17,177 +16,144 @@
 
 .modalContent {
   position: relative;
-  max-width: 600px;
   width: 100%;
+  max-width: 600px;
   overflow: hidden;
 }
 
 .modalWrapper {
   position: relative;
   border-radius: 32px;
-  overflow: hidden;
   background: #222722;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100%;
-  max-height: 820px;
-  padding: 35px;
+  padding: 32px;
   display: flex;
-  gap: 32px;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
+  max-height: 824px;
   box-sizing: border-box;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
+
 .modalHeader {
-  width: 100%;
-  max-width: 536px;
-  height: 100%;
-  gap: 16px;
-  max-height: 198px;
-  text-align: center;
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
+  text-align: center;
+  width: 100%;
 }
 
 .modalTitle {
   font-family: 'CodeNext', sans-serif;
+  font-size: 48px;
   color: #FAFEFE;
-  font-size: 46px;
   line-height: 1.2;
 }
 
 .modalDescription {
-  font-family: 'Manrope Medium', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
   color: #A4A6A4;
-  font-size: 20px;
-  line-height: 1.3;
+  line-height: 128%;
   width: 100%;
+  max-width: 536px;
   margin: 0 auto;
 }
 
 .modalFields {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
-  max-width: 520px;
+  max-width: 536px;
+  height: 100%;
+  max-height: 428px;
+  padding-top: 17px;
   margin: 0 auto;
   flex: 1;
-  overflow: visible;
 }
 
 .modalField {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex-shrink: 0;
+  gap: 12px;
 }
 
 .modalLabel {
-  font-family: 'Manrope Bold', sans-serif;
-  color: #FBFBFB;
+  font-weight: 700;
   font-size: 24px;
+  color: #fbfbfb;
   line-height: 128%;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
-.modalInput {
-  font-family: 'Manrope Medium', sans-serif;
-  padding: 14px 16px;
-  border: 1px solid #fbfbfb;
-  border-radius: 18px;
+.modalInput,
+.phoneInput,
+.modalTextarea {
+  font-weight: 500;
   font-size: 24px;
-  background-color: #fbfbfb;
-  backdrop-filter: blur(4px);
-  color: #000000;
-  transition: 0.2s ease;
+  padding: 14px 16px;
+  border-radius: 18px;
+  line-height: 128%;
   width: 100%;
-  height: 63px;
   box-sizing: border-box;
+  background-color: #fbfbfb;
+  color: #222722;
+  outline: none;
+  border: 1px solid #a8a8a8;
 }
 
-.modalInput::placeholder {
-  font-family: 'Manrope Medium', sans-serif;
+.modalInput::placeholder,
+.phoneInput::placeholder,
+.modalTextarea::placeholder {
   color: #a8a8a8;
+  font-weight: 500;
+  text-indent: 0;
 }
 
 .phoneInputWrapper {
   display: flex;
   align-items: center;
-  border: 1px solid #fbfbfb;
   border-radius: 18px;
   background-color: #fbfbfb;
+  border: 1px solid #a8a8a8;
   overflow: hidden;
   height: 63px;
 }
 
 .phonePrefix {
-  padding: 14px 0 14px 16px;
+  padding: 14px 16px;
   font-size: 24px;
-  color: #000000;
   font-weight: 600;
+  color: #222722;
   white-space: nowrap;
-  margin-right: 8px;
 }
 
 .phoneInput {
-  font-family: 'Manrope SemiBold', sans-serif;
-  padding: 14px 16px 14px 8px;
-  border: none;
-  width: 100%;
-  font-size: 24px;
-  height: 100%;
-  background-color: transparent;
-  color: #000000;
   flex: 1;
-  outline: none;
-  min-width: 0;
-}
-
-.phoneInput::placeholder {
-  font-family: 'Manrope SemiBold', sans-serif;
-  color: #a8a8a8;
+  border: none;
+  text-indent: 10px;
+  background-color: transparent;
+  padding: 14px 8px 14px 0;
 }
 
 .modalTextarea {
-  font-family: 'Manrope Regular', sans-serif;
-  padding: 12px 12px;
-  border-radius: 18px;
-  font-size: 24px;
+  overflow-y: scroll;
+  scrollbar-width: none;
   resize: none;
-  background-color: #fbfbfb;
-  color: #000000;
   height: 125px;
   min-height: 125px;
   max-height: 125px;
-  transition: 0.2s ease;
-  width: 100%;
-  box-sizing: border-box;
-  line-height: 1.2;
-  overflow-y: auto;
-  scrollbar-width: none;
+  padding: 11px 16px 16px 16px;
 }
 
-.modalTextarea::placeholder {
-  font-family: 'Manrope Regular', sans-serif;
-  color: #a8a8a8;
-  position: relative;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  max-height: calc(1.4em * 3 + 4px);
-  line-height: 1.4;
+.modalTextarea::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 
 .modalSubmit {
-  padding-top: 30px;
-  margin-top: auto;
+  display: flex;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -195,11 +161,125 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 600px;
   height: 820px;
   max-height: 820px;
   padding: 35px;
-  width: 100%;
-  max-width: 600px;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.modalSubmitWrapper {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wrapperInputModal{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .modalWrapper {
+    padding: 24px;
+    border-radius: 24px;
+    max-height: 90vh; /* Чтобы помещалось на экране */
+  }
+
+  .modalTitle {
+    font-size: 32px;
+  }
+
+  .modalDescription {
+    font-size: 18px;
+    max-width: 90%;
+  }
+
+  .modalFields {
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  .modalLabel {
+    font-size: 20px;
+  }
+
+  .modalInput,
+  .phoneInput,
+  .modalTextarea {
+    font-size: 20px;
+    padding: 12px 14px;
+  }
+
+  .phoneInputWrapper {
+    height: 55px;
+  }
+
+  .phonePrefix {
+    font-size: 20px;
+    padding: 12px 14px;
+  }
+
+  .modalSubmitWrapper {
+    margin-top: 16px;
+  }
+
+  MasterButton {
+    width: 100%; /* Занимает всю ширину */
+    height: 56px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalTitle {
+    font-size: 24px;
+  }
+
+  .modalDescription {
+    font-size: 16px;
+  }
+
+  .modalLabel {
+    font-size: 16px;
+  }
+
+  .modalInput,
+  .phoneInput,
+  .modalTextarea {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .phoneInputWrapper {
+    height: 48px;
+  }
+
+  .phonePrefix {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .modalSubmitWrapper {
+    margin-top: 12px;
+  }
+
+  MasterButton {
+    height: 48px;
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+
+/* Чтобы модалка не выходила за экран */
+.modalContent {
+  width: 95%;
+  max-width: 600px;
+  margin: 0 10px;
+  max-height: 95vh;
+  overflow-y: auto;
 }

@@ -10,7 +10,7 @@ export default defineComponent({
     img: prop<string>().required(),
   },
 
-   setup(props) {
+  setup(props) {
     return () => (
       <div class={styles.widget}>
         <div
@@ -22,7 +22,7 @@ export default defineComponent({
 
         <div class={styles.content}>
           <div class={styles.contentInner}>
-            <div class={styles.title}>{props.label}</div>
+            <span class={styles.title}>{props.label}</span>
             <div class={styles.text}>{props.value}</div>
           </div>
         </div>

@@ -27,44 +27,28 @@ export default defineComponent({
   props: feedbackFormProps,
 
   setup(props) {
-    const formData = ref<FormData>({
-      name: '',
-      phone: '',
-      comment: '',
-    })
-
+    const formData = ref<FormData>({ name: '', phone: '', comment: '' })
     const isSubmitted = ref(false)
     const isLoading = ref(false)
 
     const handlePhoneInput = (e: Event) => {
       const target = e.target as HTMLInputElement
-      const value = target.value
-      const cleanPhone = processPhoneInput(value)
-      formData.value.phone = cleanPhone
-    }
-
-    const handleCommentInput = (e: Event) => {
-      const target = e.target as HTMLTextAreaElement
-      let value = target.value
-
-      value = sanitizeInput(value)
-      formData.value.comment = value
+      formData.value.phone = processPhoneInput(target.value)
     }
 
     const handleNameInput = (e: Event) => {
       const target = e.target as HTMLInputElement
-      let value = target.value
-
-      value = value.replace(/[^а-яА-ЯёЁ\s\-]/g, '')
-
-      value = sanitizeInput(value)
-      formData.value.name = value
-      target.value = value
+      let value = target.value.replace(/[^а-яА-ЯёЁ\s\-]/g, '')
+      formData.value.name = sanitizeInput(value)
+      target.value = formData.value.name
     }
 
-    const formattedPhone = computed(() => {
-      return formatPhone(formData.value.phone)
-    })
+    const handleCommentInput = (e: Event) => {
+      const target = e.target as HTMLTextAreaElement
+      formData.value.comment = sanitizeInput(target.value)
+    }
+
+    const formattedPhone = computed(() => formatPhone(formData.value.phone))
 
     const handleSubmit = async () => {
       if (formData.value.phone.length !== 10) {
@@ -73,24 +57,16 @@ export default defineComponent({
       }
 
       isLoading.value = true
-
       try {
         await new Promise((resolve) => setTimeout(resolve, 1000))
-
-        if (props.onSubmit) {
-          props.onSubmit(formData.value)
-        }
-
-        console.log('Form submitted:', formData.value)
+        props.onSubmit?.(formData.value)
         isSubmitted.value = true
 
         if (props.isModal && props.onClose) {
-          setTimeout(() => {
-            props.onClose!()
-          }, 3000)
+          setTimeout(() => props.onClose?.(), 3000)
         }
-      } catch (error) {
-        console.error('Error submitting form:', error)
+      } catch (err) {
+        console.error(err)
       } finally {
         isLoading.value = false
       }
@@ -98,15 +74,8 @@ export default defineComponent({
 
     const handleCloseModal = () => {
       isSubmitted.value = false
-      formData.value = {
-        name: '',
-        phone: '',
-        comment: '',
-      }
-
-      if (props.onClose) {
-        props.onClose()
-      }
+      formData.value = { name: '', phone: '', comment: '' }
+      props.onClose?.()
     }
 
     return () => (
@@ -121,56 +90,68 @@ export default defineComponent({
               ×
             </button>
           )}
-
-          <div class={styles.formFields}>
-            <div class={styles.formField}>
-              <label class={styles.formLabel}>Ваше имя</label>
-              <input
-                type="text"
-                class={styles.formInput}
-                placeholder="Введите ваше имя"
-                value={formData.value.name}
-                onInput={handleNameInput}
-                maxlength="50"
-              />
-            </div>
-
-            <div class={styles.formField}>
-              <label class={styles.formLabel}>Номер телефона</label>
-              <div class={styles.phoneInputWrapper}>
-                <span class={styles.phonePrefix}>+7</span>
+          <div class={styles.form}>
+            <div class={styles.formFields}>
+              <div class={styles.formField}>
+                <label class={styles.formLabel}>Ваше имя</label>
                 <input
-                  type="tel"
-                  class={styles.phoneInput}
-                  placeholder="(000) 000-00-00"
-                  value={formattedPhone.value}
-                  onInput={handlePhoneInput}
-                  onKeypress={handlePhoneKeyPress}
-                  maxlength="15"
-                  inputmode="numeric"
+                  type="text"
+                  id="name"
+                  name="name"
+                  class={styles.formInput}
+                  placeholder="Введите ваше имя"
+                  value={formData.value.name}
+                  onInput={handleNameInput}
+                  maxlength={50}
+                />
+              </div>
+
+              <div class={styles.formField}>
+                <label class={styles.formLabel}>Номер телефона</label>
+                <div class={styles.phoneInputWrapper}>
+                  <span class={styles.phonePrefix}>+7</span>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class={styles.phoneInput}
+                    placeholder="(000) 000-00-00"
+                    value={formattedPhone.value}
+                    onInput={handlePhoneInput}
+                    onKeypress={handlePhoneKeyPress}
+                    maxlength={15}
+                    inputmode="numeric"
+                  />
+                </div>
+              </div>
+
+              <div class={styles.formField}>
+                <label class={styles.formLabel}>Комментарий</label>
+                <textarea
+                  class={styles.formTextarea}
+                  placeholder="В своём стремлении улучшить пользовательский опыт мы упускаем, что явные признаки победы могут быть..."
+                  rows={3}
+                  id="comment"
+                  name="comment"
+                  value={formData.value.comment}
+                  onInput={handleCommentInput}
+                  maxlength={210}
                 />
               </div>
             </div>
 
-            <div class={styles.formField}>
-              <label class={styles.formLabel}>Комментарий</label>
-              <textarea
-                class={styles.formTextarea}
-                placeholder="В своём стремлении улучшить пользовательский опыт мы упускаем, что явные признаки победы могут быть..."
-                rows={3}
-                value={formData.value.comment}
-                onInput={handleCommentInput}
-                maxlength="210"
-              />
-            </div>
-
-            <div class={styles.formSubmit}>
+            <div class={styles.formSubmitWrapper}>
               <MasterButton
                 text={isLoading.value ? 'Отправка...' : 'Отправить'}
                 width="520px"
                 height="66px"
                 iconHeight="46px"
                 iconWidth="46px"
+                fontSize="24px"
+                fontWeight="600"
+                gap="12px"
+                padding="10px 12px 10px 32px"
+                justifyContent="center"
                 onClick={handleSubmit}
                 icon="/icons/icon-arrowUp.svg"
               />

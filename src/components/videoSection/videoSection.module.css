@@ -1,4 +1,5 @@
 @import url('../../app/styles/font');
+
 .videoSection {
   width: 100%;
   margin: 0 auto;
@@ -6,7 +7,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 60px 40px;
+  padding: 60px 42px;
   box-sizing: border-box;
 }
 
@@ -15,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1356px;
   margin: 0 auto;
 }
 
@@ -30,9 +31,8 @@
 
 .video {
   width: 100%;
-  max-width: 1440px;
-  height: 100%;
-  max-height: 680px;
+  max-width: 1356px;
+  height: 764px;
   background-color: black;
   border-radius: 36px;
   overflow: hidden;
@@ -44,24 +44,29 @@
   position: relative;
   width: 100%;
   height: 100%;
-  cursor: pointer;
 }
 
 .videoPlayer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  height: 100%;
+  max-height: 100%;
+  object-position: center;
   object-fit: cover;
-  display: block;
 }
 
 .videoPoster {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 2;
+  object-position: center top;
   transition: opacity 0.3s ease;
   cursor: pointer;
   filter: brightness(0.5);
@@ -81,15 +86,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 3;
-  transition: opacity 0.3s ease;
 }
 
 .playButtonIcon {
   width: 60px;
   height: 60px;
-  transition: transform 0.2s ease;
-  margin-bottom: 60px;
 }

@@ -1,19 +1,11 @@
-@import url('../../app/styles/font');
-
 .header {
-  position: relative;
-  z-index: 1000;
-  background-color: transparent;
+  padding: 0 9px;
 }
 
 .container {
-  margin: 32px;
-  padding: 0 32px;
-  height: 84px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: transparent;
+  padding: 32px 46px;
 }
 
 .leftSection {
@@ -21,86 +13,76 @@
   align-items: center;
   gap: 64px;
 }
+
 .logoSection {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .logoIcon {
   width: 42px;
   height: 42px;
 }
+
 .logoText {
   display: flex;
   flex-direction: column;
 }
+
 .logoTitle {
-  font-family: 'Manrope Bold', sans-serif;
+  font-weight: 700;
   font-size: 24px;
-  color: #ffffff;
+  color: #FBFBFB;
   margin: 0;
 }
+
 .contactsSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding-left: 20px;
-  margin-left: 20px;
 }
+
 .contactItem {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .contactText {
-  font-family: 'Manrope Medium', sans-serif;
+  font-weight: 400;
   font-size: 18px;
-  color: #ffffff;
+  line-height: 128%;
+  color: #FBFBFB;
 }
+
 .rightSection {
+  max-width: 660px;
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 62px;
-  flex: 1;
-  max-width: 700px;
+  justify-content: space-between;
+  gap: 52px;
 }
-.nav {
-  display: flex;
-  gap: 100px;
-}
-.navLink {
-  font-family: 'Manrope Medium', sans-serif;
-  font-size: 20px;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 8px 0;
-  position: relative;
-  white-space: nowrap;
-  min-width: 120px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-.navLink:hover {
-  border: 1px solid white;
-  border-radius: 32px;
-}
-.contactButton {
-  background: #ddf28a;
-  color: #222722;
-  border-radius: 32px;
-  width: 176px;
-  height: 46px;
-  gap: 16px;
-  font-weight: 600;
-  font-size: 20px;
-  cursor: pointer;
+
+.navItemWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.arrow {
-  width: 32px;
-  height: 32px;
+
+.navLink {
+  font-weight: 500;
+  font-size: 20px;
+  color: #FBFBFB;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 10px 16px;
+  border-radius: 32px;
+  border: 1px solid transparent;
+}
+
+.navLink:hover {
+  border-color: #FBFBFB;
 }

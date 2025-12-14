@@ -1,10 +1,11 @@
+@import url('../../app/styles/font');
+
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 1000;
+  background-color: transparent;
 }
+
 .container {
   margin: 32px;
   padding: 0 32px;
@@ -12,11 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: transparent;
 }
+
 .leftSection {
   display: flex;
   align-items: center;
-  gap: 120px;
+  gap: 64px;
 }
 .logoSection {
   display: flex;
@@ -32,16 +35,16 @@
   flex-direction: column;
 }
 .logoTitle {
+  font-family: 'Manrope Bold', sans-serif;
   font-size: 24px;
-  font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 .contactsSection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   padding-left: 20px;
   margin-left: 20px;
 }
@@ -51,32 +54,40 @@
   gap: 10px;
 }
 .contactText {
+  font-family: 'Manrope Medium', sans-serif;
   font-size: 18px;
-  color: #FFFFFF;
-  font-weight: 500;
+  color: #ffffff;
 }
 .rightSection {
   display: flex;
   align-items: center;
-  gap: 52px;
+  gap: 62px;
   flex: 1;
-  justify-content: flex-end;
+  max-width: 700px;
 }
 .nav {
   display: flex;
   gap: 100px;
 }
 .navLink {
+  font-family: 'Manrope Medium', sans-serif;
   font-size: 20px;
-  font-weight: 500;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   padding: 8px 0;
   position: relative;
   white-space: nowrap;
+  min-width: 120px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.navLink:hover {
+  border: 1px solid white;
+  border-radius: 32px;
 }
 .contactButton {
-  background: #DDF28A;
+  background: #ddf28a;
   color: #222722;
   border-radius: 32px;
   width: 176px;
@@ -89,7 +100,7 @@
   align-items: center;
   justify-content: center;
 }
-.arrow{
+.arrow {
   width: 32px;
   height: 32px;
 }

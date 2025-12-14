@@ -1,0 +1,45 @@
+@import url('../../app/styles/font');
+.dropDownSection {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-family: 'CodeNext', sans-serif;
+  color: #222722;
+  font-size: 52px;
+  line-height: 1.2;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.dropdownsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.dropdownContent {
+  padding: 16px 0;
+  font-family: 'Manrope Medium', sans-serif;
+  color: #D9D9D9;
+  font-size: 18px;
+}

@@ -7,7 +7,12 @@ export default defineComponent({
   props: {
     text: prop<string>().required(),
     width: prop<string>().required(),
+    height: prop<string>().required(),
     icon: prop<string>().optional(),
+    font: prop<string>().optional(),
+    gap: prop<string>().optional(),
+    iconWidth: prop<string>().optional(),
+    iconHeight: prop<string>().optional(),
     type: prop<'button' | 'submit' | 'reset'>().optional(),
     onClick: prop<() => void>().optional(),
   },
@@ -23,7 +28,7 @@ export default defineComponent({
       <div class={styles.buttonContainer}>
         <button
           class={styles.masterButton}
-          style={{ width: props.width }}
+          style={{ width: props.width, height: props.height, fontSize: props.font, gap: props.gap }}
           type={props.type}
           onClick={handleClick}
         >
@@ -31,7 +36,12 @@ export default defineComponent({
 
           {props.icon && (
             <span class={styles.icon}>
-              <img src={props.icon} alt="icon" class={styles.iconImage} />
+              <img
+                src={props.icon}
+                alt="icon"
+                class={styles.iconImage}
+                style={{ minWidth: props.iconWidth, minHeight: props.iconHeight }}
+              />
             </span>
           )}
         </button>

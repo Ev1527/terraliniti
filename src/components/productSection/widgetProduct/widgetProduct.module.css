@@ -1,0 +1,120 @@
+@import url('../../../app/styles/font');
+
+.widget {
+  width: 430px;
+  height: 560px;
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(48, 61, 40, 0.2);
+}
+
+.widget:hover {
+  box-shadow: 0 4px 12px rgba(48, 61, 40, 0.6);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 370px;
+  overflow: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  background-size: cover;
+  background-position: 70% center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.imageWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.widget:nth-child(1) .imageWrapper {
+  background-position: 70% center;
+}
+
+.widget:nth-child(2) .imageWrapper {
+  background-position: 70% center;
+}
+
+.widget:nth-child(3) .imageWrapper {
+  background-position: 5% center;
+  background-size: 195%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #485b43;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+  padding: 20px;
+}
+
+.widget:hover .content {
+  background-color: #c2cc9a;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.contentInner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: start;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Manrope ExtraBold', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  line-height: 1.2;
+  overflow: hidden;
+  height: 31px;
+  min-height: 31px;
+  max-height: 31px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.widget:hover .title {
+  color: #222722;
+}
+
+.text {
+  font-family: 'Manrope Medium', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: 0.9;
+  margin: 0;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  color: #ffffff;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.widget:hover .text {
+  color: #222722;
+  opacity: 1;
+}

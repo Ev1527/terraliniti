@@ -2,3 +2,23 @@
   width: 100%;
   overflow: hidden;
 }
+.sectionDividerContainer {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.sectionDivider {
+  height: 2px;
+  background-color: #3e5133;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.homeSectionWrapper {
+  position: relative;
+}

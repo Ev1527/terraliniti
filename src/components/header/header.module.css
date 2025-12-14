@@ -1,0 +1,95 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.container {
+  margin: 32px;
+  padding: 0 32px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+}
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logoIcon {
+  width: 42px;
+  height: 42px;
+}
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+.logoTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+.contactsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contactText {
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  flex: 1;
+  justify-content: flex-end;
+}
+.nav {
+  display: flex;
+  gap: 100px;
+}
+.navLink {
+  font-size: 20px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px 0;
+  position: relative;
+  white-space: nowrap;
+}
+.contactButton {
+  background: #DDF28A;
+  color: #222722;
+  border-radius: 32px;
+  width: 176px;
+  height: 46px;
+  gap: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow{
+  width: 32px;
+  height: 32px;
+}

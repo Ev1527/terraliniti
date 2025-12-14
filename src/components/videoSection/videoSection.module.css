@@ -1,0 +1,35 @@
+.videoSection {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.title {
+  color: #000000;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  flex-grow: 1;
+}
+.video {
+  width: 80%;
+  height: 500px;
+  background-color: black;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+}

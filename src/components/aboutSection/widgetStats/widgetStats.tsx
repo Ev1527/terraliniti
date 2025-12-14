@@ -3,7 +3,7 @@ import { prop } from '../../../../types/prop-types'
 import styles from './widgetStats.module.css'
 
 export default defineComponent({
-  name: 'Widget',
+  name: 'WidgetStats',
   props: {
     value: prop<string>().required(),
     label: prop<string>().required(),

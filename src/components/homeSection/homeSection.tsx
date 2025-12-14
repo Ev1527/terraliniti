@@ -1,11 +1,19 @@
 import { defineComponent } from 'vue'
+import { prop } from '../../../types/prop-types'
 import styles from './homeSection.module.css'
+import MasterButton from '../masterButton/masterButton'
 
 export default defineComponent({
   name: 'HomeSection',
-  setup() {
+  props: {
+    onLearnMore: prop<() => void>().optional(),
+  },
+  setup(props) {
     const handleLearnMore = () => {
-      console.log('тут пока тоже хз')
+      console.log('Переходим к продуктам')
+      if (props.onLearnMore) {
+        props.onLearnMore()
+      }
     }
 
     return () => (
@@ -28,9 +36,12 @@ export default defineComponent({
           </div>
           
           <div class={styles.buttonContainer}>
-            <button class={styles.learnMoreButton} onClick={handleLearnMore}>
-              Узнать больше
-            </button>
+            <MasterButton
+              text="Узнать больше"
+              width="284px"
+              icon="../../../public/icons/icon-rightArrow.svg"
+              onClick={handleLearnMore}
+            />
           </div>
         </div>
       </div>
